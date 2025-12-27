@@ -171,6 +171,9 @@ works for any frontend framework
 
 ## 🎥 Project Demo Video
 
-<video src="videos/demo.mp4" controls width="650"></video>
+👉 Click here to watch the demo video:
+
+https://github.com/MohammadSami9555/frontend-preview-deploy/blob/test-preview/videos/demo.mp4
+
 
 
