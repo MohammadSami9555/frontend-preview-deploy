@@ -168,3 +168,9 @@ faster team collaboration
 avoids breaking production
 
 works for any frontend framework
+
+## 🎥 Project Demo Video
+
+<video src="videos/demo.mp4" controls width="650"></video>
+
+
