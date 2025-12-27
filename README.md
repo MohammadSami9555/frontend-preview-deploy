@@ -169,11 +169,11 @@ avoids breaking production
 
 works for any frontend framework
 
-## 🎥 Project Demo Video
+## 🎥 Demo Video
 
-👉 Click here to watch the demo video:
-
-https://raw.githubusercontent.com/MohammadSami9555/frontend-preview-deploy/test-preview/videos/demo.mp4
+<video controls width="600">
+  <source src="https://raw.githubusercontent.com/MohammadSami9555/frontend-preview-deploy/test-preview/public/demo.mp4" type="video/mp4">
+</video>
 
 
 
