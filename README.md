@@ -1,70 +1,170 @@
-# Getting Started with Create React App
+# 🚀 Preview Deployments for Frontend Pull Requests (GitHub Actions + Vercel)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project implements **automatic preview deployments** for every Pull Request.  
+Whenever a developer opens a PR, this system:
 
-## Available Scripts
+- builds the frontend automatically
+- deploys it to Vercel
+- generates a **unique live preview link**
+- comments that link inside the PR
 
-In the project directory, you can run:
+So reviewers can **see the actual running app before merging** ✔️
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 🧠 What are Preview Deployments?
 
-### `npm test`
+Preview deployments allow you to:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+✔️ test features before merging  
+✔️ share live link with teammates  
+✔️ visually verify UI changes  
+✔️ catch bugs early  
 
-### `npm run build`
+Example:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+main branch → production website
+PR #5 → https://pr-5-preview.vercel.app
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+PR #9 → https://pr-9-preview.vercel.app
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Each PR gets its **own live URL**.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+---
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## 🛠️ Tech Used
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- React (frontend)
+- GitHub Actions (CI/CD automation)
+- Vercel (hosting + deployments)
 
-## Learn More
+---
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## ✅ Prerequisites
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Before setup, you must have:
 
-### Code Splitting
+- GitHub account
+- Vercel account
+- React project pushed to GitHub
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+---
 
-### Analyzing the Bundle Size
+## 🚀 Step 1 — Create React App (if not already)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+```bash
+npx create-react-app frontend-preview
+cd frontend-preview
 
-### Making a Progressive Web App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+🌍 Step 2 — Push project to GitHub
 
-### Advanced Configuration
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+git init
+git add .
+git commit -m "initial commit"
+git branch -M main
+git remote add origin <repo-link>
+git push -u origin main
 
-### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-### `npm run build` fails to minify
+⚡ Step 3 — Connect GitHub repo to Vercel
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+1️⃣ Login to Vercel
+2️⃣ Add New Project
+3️⃣ Select GitHub repo
+4️⃣ Click Deploy
+
+Production URL will be created ✔️
+
+
+🔐 Step 4 — Create Vercel Token
+
+Go to:
+
+Vercel → Settings → Tokens
+
+
+Create token → copy it → do not share
+
+
+🆔 Step 5 — Get ORG ID & Project ID
+
+Go to:
+
+Vercel → Project → Settings
+
+
+Copy:
+
+Organization ID
+
+Project ID
+
+
+🔑 Step 6 — Add GitHub Secrets
+
+GitHub Repo → Settings → Secrets → Actions → New repository secret
+
+Add:
+
+| Secret Name         | Value           |
+| ------------------- | --------------- |
+| `VERCEL_TOKEN`      | Vercel token    |
+| `VERCEL_ORG_ID`     | Organization ID |
+| `VERCEL_PROJECT_ID` | Project ID      |
+
+
+
+🤖 Step 7 — Create GitHub Actions Workflow
+
+Create file:
+
+.github/workflows/preview.yml
+
+
+🧪 Step 8 — How to test preview deployment
+
+1️⃣ Create new branch
+
+git checkout -b test-preview
+
+2️⃣ Make any change in UI
+3️⃣ Commit & push
+
+git add .
+git commit -m "test preview"
+git push origin test-preview
+
+
+4️⃣ Create Pull Request
+
+✔️ GitHub Actions will run
+✔️ Vercel will deploy
+✔️ PR gets live link 🎉
+
+🎉 Result
+
+Every PR automatically gets:
+
+build
+
+live deployed preview
+
+PR comment with link
+
+No manual deployment required 🚀
+
+💡 Why this is useful?
+
+easier code reviews
+
+faster team collaboration
+
+avoids breaking production
+
+works for any frontend framework
