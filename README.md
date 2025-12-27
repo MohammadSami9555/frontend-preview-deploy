@@ -173,7 +173,8 @@ works for any frontend framework
 
 👉 Click here to watch the demo video:
 
-https://github.com/MohammadSami9555/frontend-preview-deploy/blob/test-preview/videos/demo.mp4
+https://raw.githubusercontent.com/MohammadSami9555/frontend-preview-deploy/test-preview/videos/demo.mp4
+
 
 
 
