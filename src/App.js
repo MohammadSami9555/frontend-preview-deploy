@@ -8,7 +8,7 @@ function App() {
         <img src={logo} className="App-logo" alt="logo" />
 
         <p>
-          Hello Preview Deployment 👋
+          Preview Deployment Test 🚀
         </p>
 
         <a
